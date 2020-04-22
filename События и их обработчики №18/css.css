@@ -1,0 +1,12 @@
+button {
+    width: 150px;
+    height: 60px;
+    text-decoration: none;
+    padding-top: 9px;
+    color: hsl(240, 100%, 100%);
+    background-color: #155a03;
+    line-height: 24px;
+    
+    margin: 20px auto;
+    font: normal 19px arial;
+  }
