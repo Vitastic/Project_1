@@ -22,8 +22,14 @@ let startBtn = document.getElementById('start'),
     monthValue = document.querySelector('.month-value'),
     dayValue = document.querySelector('.day-value');
 
+    
 
 let money, time;
+
+// Деактевируем кнопки (Утвердить, Утвердить, Рассчитать)
+expensesBtn.setAttribute('disabled', 'disabled');
+optionalExpensesBtn.setAttribute('disabled', 'disabled');
+countBtn.setAttribute('disabled', 'disabled');
 
 
 startBtn.addEventListener('click', function () {
@@ -39,6 +45,10 @@ startBtn.addEventListener('click', function () {
     monthValue.value = new Date(Date.parse(time)).getMonth() + 1;
     dayValue.value = new Date(Date.parse(time)).getDate();
 
+    // Активируем три кнопки, после нажатия (Начать рассчет)
+    expensesBtn.removeAttribute('disabled');
+    optionalExpensesBtn.removeAttribute('disabled');
+    countBtn.removeAttribute('disabled');
 
 });
 
@@ -52,7 +62,7 @@ expensesBtn.addEventListener('click', function () {
 
         if ((typeof (a)) === 'string' && (typeof (a)) != null && (typeof (b)) != null &&
             a != '' && b != '' && a.length < 50) {
-            console.log("Все верно!");
+           // console.log("Все верно!");
             appDate.expenses[a] = b;
             sum += +b;
         } else {
@@ -60,6 +70,8 @@ expensesBtn.addEventListener('click', function () {
         }
     }
     expensesValue.textContent = sum;
+
+       
 });
 
 
@@ -77,7 +89,7 @@ optionalExpensesBtn.addEventListener('click', function () {
 countBtn.addEventListener('click', function () {
 
     if (appDate.budget != undefined) {
-        appDate.moneyPerDay = (appDate.budget / 30).toFixed();
+        appDate.moneyPerDay = ((appDate.budget - expensesValue.textContent)  / 30).toFixed();
         dayBudgetValue.textContent = appDate.moneyPerDay;
 
         if (appDate.moneyPerDay < 100) {
@@ -149,3 +161,8 @@ let appDate = {
     income: [],
     savings: false                 
 };
+
+
+
+console.log ();
+
