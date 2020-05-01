@@ -37,6 +37,9 @@
     })
 
 
-console.log (info); 
+//console.log (('0' + currentDate.getHours()).slice(-2)); 
+console.log ('Ghhhhhhhoyt'.slice(-3));
+
+
 
  });
