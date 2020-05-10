@@ -29,3 +29,9 @@ let optionSecond = new Options(350, 750, 'yellow', 75, 'right');
 
 optionOne.createDiv('Hello, ');
 optionSecond.createDiv('this cool world!!!');
+
+// Изучаем JSON!
+//console.log(optionOne);
+console.log(JSON.stringify(optionOne));
+console.log(JSON.parse(JSON.stringify(optionOne)));
+
